@@ -30,7 +30,7 @@ class Scene2ViewController: UIViewController {
         
         var difference : Int = 0
         if(Data.currentValue == Data.targetValue){
-            let alert1=UIAlertController(title: "Nice job!", message:"You got the correct number: \(String(describing: Data.targetValue))",preferredStyle: UIAlertControllerStyle.alert)
+            let alert1=UIAlertController(title: "Nice job!", message:"You got the correct number: \(Data.targetValue ?? 0)",preferredStyle: UIAlertControllerStyle.alert)
              let okAction1=UIAlertAction(title: "Play one more time!", style:UIAlertActionStyle.default, handler: nil)
              alert1.addAction(okAction1)
              present(alert1, animated:true, completion: nil)
@@ -44,7 +44,7 @@ class Scene2ViewController: UIViewController {
             else if(Data.currentValue<Data.targetValue){
                 difference = Data.targetValue-Data.currentValue
             }
-        let alert2=UIAlertController(title: "Almost there!", message:"The current number is \(String(describing: Data.currentValue)). The target number is \(String(describing: Data.targetValue)). The gap is \(String(describing: difference))",preferredStyle: UIAlertControllerStyle.alert)
+            let alert2=UIAlertController(title: "Almost there!", message:"The current number is \(Data.currentValue ?? 0). The target number is \(Data.targetValue ?? 0). The gap is \(difference)",preferredStyle: UIAlertControllerStyle.alert)
         let okAction2=UIAlertAction(title: "Try one more time!", style:UIAlertActionStyle.default, handler: nil)
         alert2.addAction(okAction2)
         present(alert2, animated:true, completion: nil)
@@ -57,7 +57,7 @@ class Scene2ViewController: UIViewController {
     }
     @IBAction func Reset(_ sender: UIButton){
         
-        let alert3=UIAlertController(title: "Clear all records?", message:"You have play \(String(describing: Data.round)) rounds.",preferredStyle: UIAlertControllerStyle.alert)
+        let alert3=UIAlertController(title: "Clear all records?", message:"You have play \(Data.round ?? 0) rounds.",preferredStyle: UIAlertControllerStyle.alert)
         let okAction3=UIAlertAction(title: "Yes", style:UIAlertActionStyle.default, handler: nil)
         alert3.addAction(okAction3)
         present(alert3, animated:true, completion: nil)

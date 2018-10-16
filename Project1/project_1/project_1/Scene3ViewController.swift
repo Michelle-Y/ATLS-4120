@@ -57,7 +57,7 @@ class Scene3ViewController: UIViewController {
             let score = ((CorrectAnsCount)/(CorrectAnsCount+IncorrectAnsCount))*100
             NSLog("Correct: \(CorrectAnsCount)");
             NSLog("Incorrect: \(IncorrectAnsCount)");
-            Question.text="Game over! Your score is \(score)%.\nClick any button to play again!"
+            Question.text="Congratulation! Your score is \(score)%.\nClick any button to play again!"
             Answer1.setTitle("", for: .normal)
             Answer2.setTitle("", for: .normal)
             Answer3.setTitle("", for: .normal)
