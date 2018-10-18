@@ -95,6 +95,8 @@ class ViewController: UIViewController {
             //isSwim = true
             //isBike = false
             //calculateWorkout(workoutButton)
+            fartogo.text = String(Float(miles.text!)!/30)+" miles"
+            caloriesburn.text = String(((Float(miles.text!)!/60)*420))+" cals"
         }
         else if sender.selectedSegmentIndex == 2{
             workIma.image = UIImage(named: "bike")
@@ -103,6 +105,8 @@ class ViewController: UIViewController {
             //isSwim = false
             //isBike = true
             //calculateWorkout(workoutButton)
+            fartogo.text = String(Float(miles.text!)!/4)+" miles"
+            caloriesburn.text = String(((Float(miles.text!)!/60)*510))+" cals"
         }
     }
     @IBAction func RunBikeSwim(_ sender: UISegmentedControl){
