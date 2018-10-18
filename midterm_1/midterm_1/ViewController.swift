@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var caloriesburn: UILabel!
     @IBOutlet weak var RunSwimBike: UISegmentedControl!
     @IBOutlet weak var timeSlider: UISlider!
-    //var mydata = vebb()
+    var mydata = vebb()
     var speed:Float = 10
     var cals:Float = 0.0
-    var isSwim:Bool = false
-    var isBike:Bool = false
+    //var isSwim:Bool = false
+    //var isBike:Bool = false
     
     @IBAction func calculateWorkout(_ sender:UIButton){
         if(miles.text != nil){
@@ -36,8 +36,9 @@ class ViewController: UIViewController {
                 alert1.addAction(cancelAction)
                 present(alert1, animated: true, completion: nil)
             }
-            else{
-                let distance:Float = (Float(miles.text!)!/speed)
+            fartogo.text = String(Float(miles.text!)!/10)+" miles"
+            caloriesburn.text = String((Float(miles.text!)!/60)*600)+" cals"
+           /*     let distance:Float = (Float(miles.text!)!/speed)
                 let Calories:Float = ((Float(miles.text!)!/60)*600)
                 fartogo.text = String(format: "%.0f", distance)+" miles"
                 caloriesburn.text = String(format: "%.0f", Calories)+" cals"
@@ -56,50 +57,56 @@ class ViewController: UIViewController {
                 fartogo.text = String(format: "%.0f", distance)+" miles"
                 caloriesburn.text = String(format: "%.0f", Calories)+" cals"
                 }
- 
+ */
             }
-        }
+        
     }
     @IBAction func workSliderAct(_ sender: UISlider){
         let workact = sender.value
         timeSliderShow.text = String(format: "%.0f", workact)
-        //mydata.weektimes = workact
+        mydata.weektimes = workact
     }
     func weeklychange(){
         if(switchWeekly.isOn){
-            fartogo.text = String(((Float(miles.text!)!*5)/speed))+" miles"
-            caloriesburn.text = String(((Float(miles.text!)!/60)*600)*5)+" cals"
+            fartogo.text = String(((Float(miles.text!)!*(mydata.weektimes!))/10))+" miles"
+            caloriesburn.text = String(((Float(miles.text!)!/60)*600)*(mydata.weektimes!))+" cals"
         }
         else{
-            fartogo.text = String((Float(miles.text!)!/speed))+" miles"
+            fartogo.text = String((Float(miles.text!)!/10))+" miles"
             caloriesburn.text = String(((Float(miles.text!)!/60)*600))+" cals"
         }
+    }
+    @IBAction func monthlySwitchControl(_sender: UISwitch){
+        updateMode(RunSwimBike)
     }
     @IBAction func updateMode(_ sender: UISegmentedControl){
         if sender.selectedSegmentIndex == 0{
             workIma.image = UIImage(named: "run")
             speed = 10
             cals = ((Float(miles.text!)!/60)*600)
-            isSwim = false
-            isBike = false
-            calculateWorkout(workoutButton)
+            //isSwim = false
+            //isBike = false
+            //calculateWorkout(workoutButton)
         }
         else if sender.selectedSegmentIndex == 1{
             workIma.image = UIImage(named: "swim")
-            speed = 30
+            //speed = 30
             cals = ((Float(miles.text!)!/60)*420)
-            isSwim = true
-            isBike = false
-            calculateWorkout(workoutButton)
+            //isSwim = true
+            //isBike = false
+            //calculateWorkout(workoutButton)
         }
         else if sender.selectedSegmentIndex == 2{
             workIma.image = UIImage(named: "bike")
-            speed = 4
+            //speed = 4
             cals = ((Float(miles.text!)!/60)*510)
-            isSwim = false
-            isBike = true
-            calculateWorkout(workoutButton)
+            //isSwim = false
+            //isBike = true
+            //calculateWorkout(workoutButton)
         }
+    }
+    @IBAction func RunBikeSwim(_ sender: UISegmentedControl){
+        updateMode(RunSwimBike)
     }
     @IBAction func Switchchange(_ sender: UISwitch){
         weeklychange()

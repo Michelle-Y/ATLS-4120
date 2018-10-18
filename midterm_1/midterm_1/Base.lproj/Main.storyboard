@@ -58,6 +58,7 @@
                                                 <rect key="frame" x="101" y="0.0" width="51" height="30"/>
                                                 <connections>
                                                     <action selector="Switchchange:" destination="BYZ-38-t0r" eventType="valueChanged" id="hfU-N1-MBz"/>
+                                                    <action selector="monthlySwitchControlWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="TtW-IZ-wzk"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -109,6 +110,10 @@
                                             <segment title="Swim"/>
                                             <segment title="Bike"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="RunBikeSwim:" destination="BYZ-38-t0r" eventType="valueChanged" id="YjV-hk-HeK"/>
+                                            <action selector="updateMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="hTr-qg-aPa"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UVY-Fb-hDN">
                                         <rect key="frame" x="0.0" y="209" width="150" height="50.5"/>

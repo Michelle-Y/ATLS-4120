@@ -8,5 +8,5 @@
 
 import Foundation
 class vebb : Codable{
-    var weektimes : Float?
+    var weektimes : Float? = 5
 }
