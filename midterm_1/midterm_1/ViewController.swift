@@ -64,6 +64,8 @@ class ViewController: UIViewController {
     @IBAction func workSliderAct(_ sender: UISlider){
         let workact = sender.value
         timeSliderShow.text = String(format: "%.0f", workact)
+        fartogo.text = String(((Float(miles.text!)!*workact)/10))+" miles"
+        caloriesburn.text = String(((Float(miles.text!)!/60)*600)*workact)+" cals"
         //mydata.weektimes = workact
         
     }
